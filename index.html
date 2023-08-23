@@ -1,0 +1,70 @@
+﻿<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Homepage</title>
+  <meta name="Homepage" content="Homepage">
+  <link rel="stylesheet" href="styles.css?v=1.0">
+</head>
+
+
+
+
+
+<body id="background" style="background: #333333 url('images/thing.png');">
+    <header>
+        <h1><strong>CIS 114 Assignments</strong></h1>
+    </header>
+    <section class="columns">
+        <h2 style="background-color:DodgerBlue;">Assignment Links</h2>
+        <style>
+            .link {
+                font-weight: bold;
+            }
+        </style>
+        <p class="link"><a href="./hw2.html">Homework 2</a></p>
+        <p class="link"><a href="./hw3.html">Homework 3</a></p>
+        <p class="link"><a href="./hw4.html">Homework 4</a></p>
+        <p class="link"><a href="./hw5.html">Homework 5</a></p>
+        <p class="link"><a href="./hw6.html">Homework 6</a></p>
+        <p class="link"><a href="./hw7.html">Homework 7</a></p>
+        <p class="link"><a href="./hw8.html">Homework 8</a></p>
+    </section>
+    <style>
+        div {
+            height: 10px;
+            text-align: center;
+        }
+    </style>
+
+    <div>
+        <h2 style="background-color:orangered;">Heading</h2>
+        <button type="button" onclick="changeBackgroundDefault();">Default</button>
+        <button type="button" onclick="changeBackgroundDark();">Dark</button>
+        <button type="button" onclick="changeBackgroundWhite();">Light</button>
+        <button type="button" onclick="changeBackgroundPepe();">Pepe</button>
+
+
+	<script type="text/javascript">
+
+		function changeBackgroundDefault() {
+            		document.body.style.background = 'url(images/thing.png)';
+        	}
+
+		function changeBackgroundDark() {
+            		document.body.style.background = 'url(images/BlackBackground.png)';
+        	}
+
+		function changeBackgroundWhite() {
+            		document.body.style.background = 'url(images/WhiteBackground.png)';
+        	}
+
+		function changeBackgroundPepe() {
+            		document.body.style.background = 'url(images/PepeBackground.jpg)';
+        	}
+
+    	</script>
+    </div>
+</body>
+</html>
