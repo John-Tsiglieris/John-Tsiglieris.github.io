@@ -1,0 +1,101 @@
+﻿<!doctype html>
+
+<html lang="en">
+<head>
+  <title>Homework 2</title>
+  <meta charset="utf-8">
+  <meta name="Homepage" content="Homepage">
+  <meta name="description" content="Homework 2">
+  <link rel="stylesheet" href="styles.css?v=1.0">
+  <script>
+    function process() {
+      var int1, int2, int3, n1, n2, n3, sum, average, product, smallest, largest;
+      var errormessage = "ERROR! Nonnumber found!";
+
+      int1 = document.forms["myform"].elements["int1"].value;
+      int2 = document.forms["myform"].elements["int2"].value;
+      int3 = document.forms["myform"].elements["int3"].value;
+
+      n1 = parseInt(int1);
+      n2 = parseInt(int2);
+      n3 = parseInt(int3);
+
+      sum = n1 + n2 + n3;
+      average = (n1+n2+n3)/3;
+      product = n1*n2*n3;
+      smallest = Math.min(n1, n2, n3)
+      largest = Math.max(n1, n2, n3)
+
+      if(isNaN(sum)) {
+        document.forms["myform"].elements["sum"].value = errormessage;
+        document.forms["myform"].elements["average"].value = errormessage;
+        document.forms["myform"].elements["product"].value = errormessage;
+        document.forms["myform"].elements["smallest"].value = errormessage;
+        document.forms["myform"].elements["largest"].value = errormessage;
+      } else {
+        document.forms["myform"].elements["sum"].value = sum;
+        document.forms["myform"].elements["average"].value = average;
+        document.forms["myform"].elements["product"].value = product;
+        document.forms["myform"].elements["smallest"].value = smallest;
+        document.forms["myform"].elements["largest"].value = largest;
+      }
+    }
+  </script>
+</head>
+
+<body id="background" style="background: #333333 url('images/thing.png');">
+  <h1>Homework 2 - Basic Operations</h1>
+  <form name="myform">
+    <tr>
+    <td><label for="int1">Integer 1:</label></td>
+    <td><input type="number" id="int1" required></td>
+  </tr><br>
+
+    <tr>
+    <td><label for="int2">Integer 2:</label></td>
+    <td><input type="number" id="int2" required><br></td>
+    </tr>
+
+    <tr>
+    <td><label for="int3">Integer 3:</label></td>
+    <td><input type="number" id="int3" required><br><br></td>
+    </tr>
+
+
+    <tr>
+      <td>Sum is:</td>
+      <td><input type="text" name="sum" size="20" readonly></td>
+    </tr>
+
+    <tr>
+      <td>Product is:</td>
+      <td><input type="text" name="product" size="20" readonly></td>
+    </tr>
+
+    <tr>
+      <td>Average is:</td>
+      <td><input type="text" name="average" size="20" readonly></td>
+    </tr>
+
+    <tr>
+      <td>Smallest number is:</td>
+      <td><input type="text" name="smallest" size="20" readonly></td>
+    </tr>
+
+    <tr>
+      <td>Largest number is:</td>
+      <td><input type="text" name="largest" size="20" readonly></td>
+    </tr>
+    <input type="button" onclick="process()" value="SUBMIT"></button>
+    <button type="reset" value="RESET" value="RESET">Reset</button>
+  </form>
+
+  <br><br>
+
+  <p class="link"><a href="./hw2Part1.html">Part 1</a></p>
+  <p class="link"><a href="./hw2Part2.html">Part 2</a></p>
+  <p class="link"><a href="./hw2ExtraCredit.html">Extra Credit</a></p>
+  <p class="link"><a href="./hw2.html">Homework 2 Homepage</a></p>
+  <p class="link"><a href="./index.html">Back to main page</a></p>
+</body>
+</html>

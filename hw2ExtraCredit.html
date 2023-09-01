@@ -1,0 +1,80 @@
+﻿<!doctype html>
+
+<html lang="en">
+<head>
+  <title>Homework 2</title>
+  <meta charset="utf-8">
+  <meta name="Homepage" content="Homepage">
+  <meta name="description" content="Homework 2">
+  <link rel="stylesheet" href="styles.css?v=1.0">
+  <script>
+    function process() {
+      var input, parsedinput, eurorate, canrate, hkrate, japrate, mexrate;
+      eurorate = 0.84; canrate = 1.23; hkrate = 7.76; japrate = 110.80; mexrate = 19.82;
+
+      input = document.forms["myform"].elements["input"].value; parsedinput = parseFloat(input);
+      document.forms["myform"].elements["euro"].value = (eurorate*parsedinput).toFixed(2);
+      document.forms["myform"].elements["can_dol"].value = (canrate*parsedinput).toFixed(2);
+      document.forms["myform"].elements["hk_dol"].value = (hkrate*parsedinput).toFixed(2);
+      document.forms["myform"].elements["jap_yen"].value = (japrate*parsedinput).toFixed(2);
+      document.forms["myform"].elements["mex_peso"].value = (mexrate*parsedinput).toFixed(2);
+    }
+
+    function css() {
+      $('input[name="input"]').css('background-color','blue')
+    }
+  </script>
+</head>
+
+<body id="background" style="background: #333333 url('images/WhiteBackground.png');">
+  <h1>Homework 2 - Basic Operations</h1>
+
+  <form name="myform">
+  <table border="3">
+  <tr>
+    <td><strong>Currency</strong></td>
+      <td><strong>Rate</strong></td>
+        <td><strong>Value</strong></td>
+  </tr><br>
+  <tr>
+    <td id="test">Euro</td>
+      <td><label name="eurorate">0.84</label></td>
+        <td><input name="euro" readonly></input></td>
+  </tr><br>
+  <tr>
+    <td>Canadian Dollar</td>
+      <td>1.23</td>
+        <td><input name="can_dol" readonly></input></td>
+  </tr><br>
+  <tr>
+    <td>Hong Kong Dollar</td>
+      <td>7.76</td>
+        <td><input name="hk_dol" readonly></input></td>
+  </tr><br>
+  <tr>
+    <td>Japanese Yen</td>
+      <td>110.80</td>
+        <td><input name="jap_yen" readonly></input></td>
+  </tr><br>
+  <tr>
+    <td>Mexican Peso</td>
+      <td>19.82</td>
+        <td><input name="mex_peso" readonly></input></td>
+  </tr><br>
+  <tr>
+    <td>Enter Amount of U.S Dollars</td>
+      <td><input name="input" required onclick="css()"></input></td>
+  </tr><br>
+</table>
+<input type="button" onclick="process()" value="SUBMIT"></input>
+</form>
+
+  <br><br><br>
+
+  <p class="link"><a href="./hw2Part1.html">Part 1</a></p>
+  <p class="link"><a href="./hw2Part2.html">Part 2</a></p>
+  <p class="link"><a href="./hw2ExtraCredit.html">Extra Credit</a></p>
+  <p class="link"><a href="./hw2.html">Homework 2 Homepage</a></p>
+  <p class="link"><a href="./index.html">Back to main page</a></p>
+</body>
+</html>
