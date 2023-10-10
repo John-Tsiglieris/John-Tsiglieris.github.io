@@ -1,0 +1,57 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <title>Homework 4</title>
+  <meta charset="utf-8">
+  <meta name="Homepage" content="Homepage">
+  <meta name="description" content="Homework 4">
+  <link rel="stylesheet" href="styles.css?v=1.0">
+  <style>
+    table {border:1px solid beige; background-color: green;}
+    th, td, tr {border:1px solid beige;}
+  </style>
+</head>
+
+<body id="background" style="background: #333333 url('images/1531-light-beige.jpg');">
+  <h1>Learn about compound interest</h1>
+<script>
+  var tableNum = 1;
+  var years = 5;
+  var principal = 1000.0;
+  var interest = 0.05;
+
+  while (tableNum <= 3) {
+    document.write("<table>");
+    document.write("<tr>");
+      document.write("<th>Year</th>");
+      document.write("<th>Amount on deposit</th>");
+      document.write("<th>Interest Rate</th>");
+    document.write("</tr>");
+      for (j = 1; j <= years; j++) {
+        if (j % 2 == 0) {
+          document.write("<tr style='background-color: red;'>");
+        } else {
+          document.write("<tr style='background-color: yellow;'>");
+        }
+        document.write("<td>" + j.toString() + "</td>");
+        principal = (principal*(1+interest)**1).toFixed(2);
+        //principal = (1+interest)^j;
+        document.write("<td>" + principal.toString() + "</td>");
+        document.write("<td>" + interest.toFixed(2) + "</td>");
+        document.write("</tr>");
+      }
+    document.write("</table><br>");
+    tableNum++;
+    principal = 1000.0;
+    interest = interest + 0.01
+  }
+</script>
+
+<p class="link"><a href="./hw4.html">Homework 4 Homepage</a></p>
+<p class="link"><a href="./hw4Part1.html">Part 1</a></p>
+<p class="link"><a href="./hw4ExtraCredit.html">Extra Credit</a></p>
+<p class="link"><a href="./index.html">Back to main page</a></p>
+
+</body>
+</html>

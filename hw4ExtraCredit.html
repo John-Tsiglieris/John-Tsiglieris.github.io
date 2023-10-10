@@ -1,0 +1,94 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <title>Homework 4</title>
+  <meta charset="utf-8">
+  <meta name="Homepage" content="Homepage">
+  <meta name="description" content="Homework 4">
+  <link rel="stylesheet" href="styles.css?v=1.0">
+  <style>
+    div {width: 315px; margin: 0 auto; text-align:left; line-height: 50%;}
+    pre {display:inline-block; text-align:left; line-height: 50%;}
+  </style>
+  <script>
+    function process()
+    {
+      var dimension;
+      var row, column, output;
+
+      dimension = document.forms["myform"].elements["input"].value;
+
+
+      if (dimension < 2 || dimension > 10) {
+        output = "ERROR! Please enter a number from 2 to 10";
+      }
+
+      else {
+        output = "";
+        row = printRows(dimension);
+        column = printColumns(dimension);
+
+        for (i = 1; i <= dimension; i++) {
+
+          if (i == 1 || i == dimension) {
+            output = output + row;
+          } else {
+            output = output + column;
+          }
+
+        }
+      }
+      document.getElementById('output').innerHTML = output;
+    }
+
+    //return top and bottom row of square
+    function printRows(dimension)
+    {
+      row = "";
+      //for loop that draws the Rows
+      for (i = 1; i <= dimension; i++) {
+        row = row + "*";
+      }
+      row = row + "\n<br>";
+      return row;
+    }
+
+    //return left and right columns minus the top and bottom bits
+    function printColumns(dimension)
+      {
+        column = "";
+        //for loop that draws the columns
+        for (i = 1; i <= dimension; i++) {
+          if (i == 1) {
+            column = column + "*";
+          } else if (i == dimension) {
+            column = column + "*";
+            }
+          else {
+            column = column + " ";
+          }
+        }
+        column = column + "\n<br>";
+        console.log(column);
+        return column;
+      }
+  </script>
+</head>
+
+<body id="background" style="background: #333333 url('images/1531-light-beige.jpg');">
+  <h1>Extra Credit</h1>
+  <form name="myform">
+    <label for="input">Type an integer from 2 to 10</label>
+    <input type="number" name="input" id="input" required>
+    <input type="button" onclick="process()" value="SUBMIT"><br><br>
+    <button type="reset" value="RESET">Clear Form</button>
+  </form>
+  <div><pre id="output"></pre></div>
+  <p class="link"><a href="./hw4.html">Homework 4 Homepage</a></p>
+  <p class="link"><a href="./hw4Part1.html">Part 1</a></p>
+  <p class="link"><a href="./hw4Part2.html">Part 2</a></p>
+  <p class="link"><a href="./index.html">Back to main page</a></p>
+
+</body>
+</html>

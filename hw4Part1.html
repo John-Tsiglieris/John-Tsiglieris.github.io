@@ -1,0 +1,68 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <title>Homework 4</title>
+  <meta charset="utf-8">
+  <meta name="Homepage" content="Homepage">
+  <meta name="description" content="Homework 4">
+  <link rel="stylesheet" href="styles.css?v=1.0">
+</head>
+
+<body id="background" style="background: #333333 url('images/1531-light-beige.jpg');">
+  <h1>Loop Practice</h1>
+
+  <div id="product1"></div><br>
+  <div id="sum1"></div><br>
+  <div id="product2"></div><br>
+  <div id="sum2"></div><br>
+
+  <p class="link"><a href="./hw4.html">Homework 4 Homepage</a></p>
+  <p class="link"><a href="./hw4Part2.html">Part 2</a></p>
+  <p class="link"><a href="./hw4ExtraCredit.html">Extra Credit</a></p>
+  <p class="link"><a href="./index.html">Back to main page</a></p>
+  <script>
+    var output1, output2, output3, output4, product1, product2, sum1, sum2;
+
+    output1 = "The result of "; output2 = "The result of "; output3 = "The result of "; output4 = "The result of ";
+    product1 = 1; product2 = 1; sum1 = 0; sum2 = 0;
+
+    for (i=5; i <= 25; i+=4){
+      product1 = product1 * i;
+      sum1 = sum1 + i;
+      if (i == 25) {
+        output1 = output1 + i.toString();
+        output2 = output2 + i.toString();
+      } else {
+        output1 = output1 + i.toString() + " * ";
+        output2 = output2 + i.toString() + " + ";
+      }
+    }
+
+    i = 3;
+    while(i <= 18){
+      product2 = product2 * i;
+      sum2 = sum2 + i;
+      if (i == 18) {
+        output3 = output3 + i.toString();
+        output4 = output4 + i.toString();
+      } else {
+        output3 = output3 + i.toString() + " * ";
+        output4 = output4 + i.toString() + " + ";
+      }
+      i+=3;
+    }
+
+    output1 = output1 + " = " + product1.toLocaleString();
+    output2 = output2 + " = " + sum1.toLocaleString();
+    output3 = output3 + " = " + product2.toLocaleString();
+    output4 = output4 + " = " + sum2.toLocaleString();
+
+    document.getElementById('product1').innerHTML = output1;
+    document.getElementById('sum1').innerHTML = output2;
+    document.getElementById('product2').innerHTML = output3;
+    document.getElementById('sum2').innerHTML = output4;
+
+  </script>
+</body>
+</html>
