@@ -1,0 +1,48 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <title>Homework 5</title>
+  <meta charset="utf-8">
+  <meta name="Homepage" content="Homepage">
+  <meta name="description" content="Homework 5">
+  <link rel="stylesheet" href="styles.css?v=1.0">
+  <script>
+
+  function goToNewPage(myForm) {
+    //use select tag using dot syntax
+    var mydest = myForm.destList.options[myForm.destList.selectedIndex].value;
+
+    window.open(mydest, '_blank').focus();
+    //window.location = mydest;
+  }
+
+  </script>
+</head>
+
+<body id="background" style="background: #333333 url('images/1531-light-beige.jpg');">
+  <h1>Onchange/Onclick Event Handlers</h1>
+  <p class="link"><a href="./index.html">Back to main page</a></p>
+  <p class="link"><a href="./hw5.html">Hw 5 main page</a></p>
+
+  <form>
+    <select name="destList" onchange="goToNewPage(this.form);">
+    <option value="http://www.yahoo.com/">Yahoo</option>
+    <option value="http://www.w3.org/">W3C</option>
+    <option value="http://www.mozilla.org/">Mozilla</option>
+    <option value="http://www.ccsf.edu/cnit">CNIT</option>
+    </select>
+  </form>
+
+  <form>
+    <select name="destList">
+    <option value="http://www.yahoo.com/">Yahoo</option>
+    <option value="http://www.w3.org/">W3C</option>
+    <option value="http://www.mozilla.org/">Mozilla</option>
+    <option value="http://www.ccsf.edu/cnit">CNIT</option>
+    </select>
+
+    <input type="button" value="Go" onclick="goToNewPage(this.form);">
+  </form>
+</body>
+</html>

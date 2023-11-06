@@ -1,0 +1,86 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <title>Homework 5</title>
+  <meta charset="utf-8">
+  <meta name="Homepage" content="Homepage">
+  <meta name="description" content="Homework 5">
+  <link rel="stylesheet" href="styles.css?v=1.0">
+  <script>
+  function process()
+    {
+      var name, age, chrome, firefox, edge, safari, genre;
+      var checkbox; //true if at least one checkbox filled
+      var errormessage = "One or more input fields were not filled!";
+
+      name = document.forms["myform"].elements["name"].value; //retrieve input
+      age = document.forms["myform"].elements["age_group"].value;
+      chrome = document.getElementById('Chrome').checked;
+      firefox = document.getElementById('Firefox').checked;
+      edge = document.getElementById('Edge').checked;
+      safari = document.getElementById('Safari').checked;
+      genre = document.forms["myform"].elements["genre"].value;
+
+      if (chrome || firefox || edge || safari) {
+        checkbox = true;
+      } else {
+        checkbox = false;
+      }
+
+      if (name && age && checkbox && genre) {
+        document.forms["myform"].elements["output"].value = "Thanks, your data was submitted!";
+      } else {
+        document.forms["myform"].elements["output"].value = errormessage;
+      }
+    }
+  </script>
+</head>
+
+<body id="background" style="background: #333333 url('images/1531-light-beige.jpg');">
+  <h1>Radio Buttons and Checkbox Practice</h1>
+
+  <form name="myform">
+    <label for="name">Enter name
+    <input name="name" id="name"></input>
+
+    <p>Please select your age group:</p>
+  <input type="radio" id="less_than_21" name="age_group" value="less_than_21">
+  <label for="less_than_21">Less than 21</label><br>
+  <input type="radio" id="21-50" name="age_group" value="21-50">
+  <label for="21-50">21-50</label><br>
+  <input type="radio" id="50+" name="age_group" value="50+">
+  <label for="50+">50+</label>
+
+  <br>
+
+  <p>Please select the browsers you have used:</p>
+  <input type="checkbox" id="Chrome" name="browser" value="Chrome">
+  <label for="Chrome">Chrome</label><br>
+  <input type="checkbox" id="Firefox" name="browser" value="Firefox">
+  <label for="Firefox">Firefox</label><br>
+  <input type="checkbox" id="Edge" name="browser" value="Edge">
+  <label for="Edge">Edge</label><br>
+  <input type="checkbox" id="Safari" name="browser" value="Safari">
+  <label for="Safari">Safari</label><br><br>
+
+  <label for="genre">Please choose your prefered movie genre:</label>
+  <input list="genres" name="genre" id="genre">
+  <datalist id="genres">
+    <option value="Action">
+    <option value="Comedy">
+    <option value="Drama">
+    <option value="Documentary">
+    <option value="Science Fiction">
+  </datalist>
+  <button type="reset" value="RESET">Clear Form</button>
+  <input type="button" onclick="process()" value="Submit">
+  </form>
+
+  <textarea id="output" style="width:80%; height:50%;" rows="10" readonly></textarea>
+
+  <p class="link"><a href="./index.html">Back to main page</a></p>
+  <p class="link"><a href="./hw5.html">Hw 5 main page</a></p>
+
+</body>
+</html>

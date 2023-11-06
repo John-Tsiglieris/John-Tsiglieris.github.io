@@ -1,0 +1,73 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <title>Homework 5</title>
+  <meta charset="utf-8">
+  <meta name="Homepage" content="Homepage">
+  <meta name="description" content="Homework 5">
+  <link rel="stylesheet" href="styles.css?v=1.0">
+  <script>
+    function process()
+    {
+      var state;
+      var censusData = [
+        ["AL","AK","AZ","AR","CA","CO"],
+        ["Alabama","Alaska","Arizona","Arkansas","California","Colorado"],
+        ["Montgomery","Juneau","Phoenix","Little Rock","Sacramento","Denver"],
+        [4903185,731545,7278717,3017825,39512223,5758736]
+      ];
+      var errormessage = "Sorry, we do not have information about this state! We only have information about Alabama, Alaska, Arizona, Arkansas, California, and Colorado.";
+
+      state = document.forms["myform"].elements["state"].value; //retrieve input
+      state = state.toUpperCase();
+
+      var rowAbbreviations = censusData[0];
+      var rowNames = censusData[1];
+      var selectedIndex;
+
+      for(var j=0; j<rowAbbreviations.length; j++) {
+        if (state == rowAbbreviations[j] || state == rowNames[j].toUpperCase()) {
+          console.log(rowAbbreviations[j]);
+          selectedIndex = j;
+          break;
+        }
+      }
+
+      if(selectedIndex) {
+        document.forms["myform"].elements["output"].value = "Thanks for your inquiry, here is the information you requested:\n\nState abbr = " + censusData[0][selectedIndex] + "\nState Name = " + censusData[1][selectedIndex] + "\nCapital = " + censusData[2][selectedIndex] + "\nPopulation = " + censusData[3][selectedIndex].toLocaleString(); // edit textarea value
+      } else {
+        document.forms["myform"].elements["output"].value = errormessage;
+      }
+    }
+  </script>
+</head>
+
+<body id="background" style="background: #333333 url('images/1531-light-beige.jpg');">
+  <h1>July 2019 Census Assignment</h1>
+
+  <form name="myform">
+  <table>
+    <tr>
+      <td><label for="state">Enter state (Either abbreviation or full name)</label></td>
+      <td><input type="text" name="state" id="state" required></td>
+    </tr>
+    <tr>
+      <td><label for="output">State Data</label></td>
+    </tr>
+    <tr>
+      <td><textarea id="output" style="width:80%; height:50%;" rows="10" readonly></textarea></td>
+    </tr>
+    <tr>
+      <td><input type="button" onclick="process()" value="SUBMIT">
+      <button type="reset" value="RESET">Clear Form</button></td>
+    </tr>
+  </table>
+  </form>
+
+
+  <p class="link"><a href="./index.html">Back to main page</a></p>
+  <p class="link"><a href="./hw5.html">Hw 5 main page</a></p>
+
+</body>
+</html>
