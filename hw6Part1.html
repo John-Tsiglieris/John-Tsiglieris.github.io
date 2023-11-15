@@ -1,0 +1,81 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <title>Homework 6</title>
+  <meta charset="utf-8">
+  <meta name="Homepage" content="Homepage">
+  <meta name="description" content="Homework 6">
+  <link rel="stylesheet" href="styles.css?v=1.0">
+  <script>
+    function process() {
+      var input = document.myform.input.value;
+      var inputAsFloat = parseFloat(input);
+      var decimalPlaces = input.length - (input.indexOf(".") + 1);
+      var isValid;
+      var errorMessage = "Please type a valid number with at least 4 decimal places!";
+
+      var round;
+      var sqrtRounded;
+      var tenths;
+      var hundredths;
+      var thousandths;
+
+      if (decimalPlaces < 4) {
+        document.getElementById('output').value = errorMessage;
+      } else {
+        round = Math.round(inputAsFloat);
+        sqrtRounded = Math.round(Math.sqrt(inputAsFloat));
+        tenths = Math.round(inputAsFloat * 10) / 10;
+        hundredths = Math.round(inputAsFloat * 100) / 100;
+        thousandths = Math.round(inputAsFloat * 1000) / 1000;
+
+        if (inputAsFloat < 0) {
+          sqrtRounded = "Cannot square a negative number!";
+          document.getElementById('output').value = "Here is your input: " + input + '\nRounded: ' + round.toFixed() + '\nSquared and rounded:' + sqrtRounded + '\nRounded to tenths: ' + tenths.toFixed(1) + '\nRounded to hundredths: ' + hundredths.toFixed(2) + '\nRounded to thousandths: ' + thousandths.toFixed(3);
+        } else {
+          document.getElementById('output').value = "Here is your input: " + input + '\nRounded: ' + round.toFixed() + '\nSquared and rounded:' + sqrtRounded.toFixed() + '\nRounded to tenths: ' + tenths.toFixed(1) + '\nRounded to hundredths: ' + hundredths.toFixed(2) + '\nRounded to thousandths: ' + thousandths.toFixed(3);
+        }
+
+
+        console.log(round);
+        console.log(sqrtRounded);
+        console.log(tenths);
+        console.log(hundredths);
+        console.log(thousandths);
+      }
+    }
+
+    function clearForm() {
+      document.getElementById('output').value = null;
+    }
+  </script>
+  <style>
+    div {
+      font-weight: bold;
+    }
+    textarea {
+      font-family: "Times New Roman", Times, serif;
+      font-weight: bold;
+      font-size: 1.5em;
+      color: red;
+    }
+  </style>
+</head>
+
+<body id="background" style="background: #333333 url('images/1531-light-beige.jpg');">
+
+  <h1>Number Objects</h1>
+
+  <form name="myform">
+    <label for="input">Enter a decimal with 4 decimal positions</label><br>
+    <input type="number" id="input" required>
+    <input type="button" onclick="process()" value="Submit">
+    <button type="reset" onclick="clearForm()" value="Reset">Clear Form</button>
+  </form>
+
+  <textarea name="output" id="output" style="width:80%; height:50%;" rows="6" readonly></textarea>
+
+  <p class="link"><a href="./index.html">Back to main page</a></p>
+</body>
+</html>

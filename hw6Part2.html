@@ -1,0 +1,114 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <title>Homework 6</title>
+  <meta charset="utf-8">
+  <meta name="Homepage" content="Homepage">
+  <meta name="description" content="Homework 6">
+  <link rel="stylesheet" href="styles.css?v=1.0">
+  <style>
+    html {
+      display: table;
+      margin: auto;
+    }
+
+    body {
+      vertical-align: middle;
+    }
+
+    p {
+      vertical-align: middle;
+    }
+
+  </style>
+  <script>
+
+    function process()
+    {
+      var big = document.myform.bigText.value.toLowerCase();
+      var small = document.myform.smallText.value.toLowerCase();
+      var re = new RegExp(small, 'g');
+      var count;
+
+      if (!small || !big) {
+        console.log("Enter input please");
+        document.getElementById('output').innerHTML = "Enter fields";
+
+        //createErrorWindow();
+      }
+
+      if (big && small) {
+        var re = new RegExp(small, 'g');
+        let result = big.match(re);
+        console.log(result);
+        if (result == null) {
+          createErrorWindow();
+        } else {
+          document.getElementById('output').innerHTML = "There are " + result.length +  " occurences in the text you typed";
+        }
+      }
+          //use regex to match appearances. Get length of array that regex returns
+    }
+
+    function createErrorWindow() //taken from lectures
+    {
+
+      var char = document.myform.smallText.value;
+
+      // assemble HTML to pump into new window:
+
+      var myText = "<html>\n";
+      myText += "<head>\n";
+      myText += "<title>Popup Window</title>\n";
+      myText += "</head>\n";
+      myText += "<body>\n";
+      myText += "<div style='margin:0 auto;'>\n";
+      myText += "<p><strong>Search character " + char + " not found in the content you typed!</strong></p>\n";
+      myText += "<input type='button' value='Close Window' onclick='window.close()'>\n";
+      myText += "</div>\n";
+      myText += "</body>\n";
+      myText += "</html>";
+
+      // open window on the upperleft of the screen
+
+      var newWindow = window.open("", "new_window",
+      "top=500,left=300,width=300,height=100");
+
+      // have browser focus on window
+
+      newWindow.focus();
+
+      // pump html into to this new opened window
+
+      newWindow.document.write(myText);
+
+      // tell browser that newWindow document is finished loading
+
+      newWindow.document.close();
+    }
+
+    function clearOutput() {
+      document.getElementById('output').innerHTML = null;
+    }
+  </script>
+</head>
+
+<body id="background" style="background: #333333 url('images/1531-light-beige.jpg');">
+
+  <h1>Assignment 6 Part 2: Find the occurences of a letter in a text</h1>
+
+  <form name="myform">
+    <label for="smallText">Type a single letter</label><br>
+    <input required type="text" id="smallText" maxlength="1" /><br>
+    <label for="bigText">Type anything you want</label><br>
+    <textarea required id="bigText" style="width:80%; height:50%;" rows="10"></textarea><br>
+
+    <input type="button" onclick="process()" value="Submit">
+    <button type="reset" value="Reset" onclick="clearOutput()">Clear Form</button>
+  </form>
+
+  <p name="output" id="output"></p>
+  <p class="link"><a href="./index.html">Back to main page</a></p>
+</body>
+</html>
