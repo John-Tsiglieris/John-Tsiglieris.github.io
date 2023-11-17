@@ -1,0 +1,127 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <title>Homework 6</title>
+  <meta charset="utf-8">
+  <meta name="Homepage" content="Homepage">
+  <meta name="description" content="Homework 6">
+  <link rel="stylesheet" href="styles.css?v=1.0">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+  <script>
+
+
+    function process()
+    {
+      var input = document.myform.phoneNumber.value;
+      var errorMessage = "You did not enter a valid phone number with the form (XXX) XXX-XXXX. Please follow that format exactly.";
+      var phoneRegExp = /^(\()(\d{3})(\))(\s)(\d{3})(-\d{4})$/;
+      var mySplitResult = input.split(" ");
+      var mySplitResult2 = input.split("-");
+
+      if ( !phoneRegExp.test(input)) {
+        console.log("Wrong input");
+        document.getElementById('error').innerHTML = errorMessage;
+        document.getElementById('1').value = null;
+        document.getElementById('2').value = null;
+        document.getElementById('3').value = null;
+      } else {
+        console.log("Right input");
+        document.getElementById('error').innerHTML = null;
+        document.getElementById('1').value = mySplitResult[0].substring(1, 4);
+        document.getElementById('2').value = (mySplitResult2[0].split(" "))[1];
+        document.getElementById('3').value = mySplitResult2[1];
+
+      }
+    }
+
+
+
+
+
+    function processJQ() {
+      console.log("hello");
+      var input = document.myformJQuery.phoneNumberJQ.value;
+      var errorMessage = "You did not enter a valid phone number.";
+      var phoneRegExp = /^(\()(\d{3})(\))(\s)(\d{3})(-\d{4})$/;
+      var mySplitResult = input.split(" ");
+      var mySplitResult2 = input.split("-");
+
+      if ( !phoneRegExp.test(input)) {
+        console.log("Wrong input");
+        document.getElementById('error').innerHTML = errorMessage;
+        document.getElementById('1').value = null;
+        document.getElementById('2').value = null;
+        document.getElementById('3').value = null;
+      } else {
+        console.log("Right input");
+        document.getElementById('error').innerHTML = null;
+        document.getElementById('1').value = mySplitResult[0].substring(1, 4);
+        document.getElementById('2').value = (mySplitResult2[0].split(" "))[1];
+        document.getElementById('3').value = mySplitResult2[1];
+      }
+    }
+  </script>
+  <style>
+    div {
+      font-family: "Times New Roman", Times, serif;
+      font-weight: bold;
+      font-size: 1.5em;
+      color: red;
+    }
+  </style>
+</head>
+
+<body id="background" style="background: #333333 url('images/1531-light-beige.jpg');">
+
+  <h1>RegEx & String Methods Practice</h1>
+  <form name="myform">
+    <label for="phoneNumber">Please enter your phone number exactly in this format: (XXX) XXX-XXXX</label>
+    <input type="text" id="phoneNumber" name="phoneNumber" required>
+
+    <input type="button" onclick="process()" value="Submit">
+    <input type="reset" value="Clear form">
+  </form>
+
+
+
+
+
+
+  <br><br><br>
+
+
+
+
+
+  <p class="link">Below is the same form using JQuery:</p>
+  <form name="myformJQuery">
+    <label for="phoneNumberJQ">Please enter your phone number</label>
+    <input type="text" id="phoneNumberJQ" name="phoneNumberJQ" required/>
+
+    <input type="button" onclick="processJQ()" value="Submit">
+    <input type="reset" value="Clear form">
+  </form>
+
+  <br><br><br>
+
+  <input type="text" readonly id="1">
+  <input type="text" readonly id="2">
+  <input type="text" readonly id="3">
+
+  <div name="error" id="error"></div>
+
+
+
+  <p class="link"><a href="./index.html">Back to main page</a></p>
+  <p class="link"><a href="./hw6.html">Homework 6 Homepage</a></p>
+
+  <script>
+    $(document).ready(function(){
+    $('#phoneNumberJQ').mask('(000) 000-0000');
+    });
+  </script>
+
+</body>
+</html>
