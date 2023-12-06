@@ -1,0 +1,77 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <title>Homework 7</title>
+  <meta charset="utf-8">
+  <meta name="Homepage" content="Homepage">
+  <meta name="description" content="Homework 7">
+  <link rel="stylesheet" href="styles.css?v=1.0">
+  <script>
+    function createCookie() {
+      var cNameValue = document.getElementById("name").value;
+      var cUserValue = document.getElementById("username").value;
+
+      var cName1 = "name";
+      var cName2 = "username";
+
+      document.cookie = cName1 + "=" + cNameValue + ";" + "SameSite=None; Secure";
+      document.cookie = cName2 + "=" + cUserValue + ";" + "SameSite=None; Secure";
+      document.getElementById("result").innerHTMl= "Hey anon";
+    }
+
+    function getCookie(cName) {
+      console.log("cookie: " + document.cookie);
+      var name = cName + "=";
+      var decodedCookie = "Decoded Cookie: " + decodeURIComponent(document.cookie);
+      var ca = decodedCookie.split(';');
+      //console.log("ca: " + ca);
+      for(var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        //console.log("c: " + c);
+        //console.log("charat0: " + c.charAt(0));
+        //console.log("substring(1): " + c.substring(1))
+        while (c.charAt(0)=='') {
+          c = c.substring(1);
+        }
+        if(c.indexOf(name) == 1) {
+          //console.log("index of name: " + c.indexOf(name));
+          return c.substring(name.length+1, c.length);
+        }
+      }
+      //console.log("index of name: " + c.indexOf(name));
+      return "";
+    }
+
+    //runs when page loads
+    function checkCookie() {
+      var username = getCookie("username");
+      if(username != "") {
+        document.getElementById('result').innerHTML = "Welcome back, " + username.toString();
+        document.getElementById('welcome').style.display = "none";
+        document.getElementById('myform').style.display = "none";
+      } else {
+        //document.getElementById("result").innerHTMl="Hey anon";
+        document.getElementById("myform").style.display = "block";
+      }
+    }
+  </script>
+</head>
+
+<body onload="checkCookie()" id="background" style="background: #333333 url('images/1531-light-beige.jpg');">
+  <h1>Cookies</h1>
+  <p id="welcome">Hello! Please type in your name and username.</p>
+  <form name="myform" id="myform">
+    <label>Name:</label>
+    <input type="text" name="name" id="name" required>
+    <label>Username:</label>
+    <input type="text" name="username" id="username" required>
+
+    <input type="button" onclick="createCookie()" value="Submit">
+    <input type="reset" value="Clear form">
+  </form>
+  <p id="result"><p>
+  <p class="link"><a href="/hw7.html">Homework 7 Homepage</a></p>
+  <p class="link"><a href="./index.html">Back to main page</a></p>
+</body>
+</html>

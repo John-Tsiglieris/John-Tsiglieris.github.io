@@ -1,0 +1,97 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <title>Homework 7</title>
+  <meta charset="utf-8">
+  <meta name="Homepage" content="Homepage">
+  <meta name="description" content="Homework 7">
+  <link rel="stylesheet" href="styles.css?v=1.0">
+  <script>
+  function changeBackgroundBeige() {
+              document.body.style.background = 'url(images/1531-light-beige.jpg)';
+        }
+  function changeBackgroundRed() {
+              document.body.style.background = 'url(images/Red.png)';
+        }
+
+  function changeBackgroundWhite() {
+              document.body.style.background = 'url(images/WhiteBackground.png)';
+        }
+
+  function changeBackgroundGreen() {
+              document.body.style.background = 'url(images/Green.png)';
+        }
+
+
+
+  function changeFontSize() {
+    var fontSize = document.getElementById("font_sizes").value;
+              fontSize = fontSize + "%";
+              console.log(fontSize);
+              document.body.style.fontSize = fontSize;
+        }
+
+  function changeTextStyle() {
+    var underline= document.getElementById("Underline").checked;
+    var bold = document.getElementById("Bold").checked;
+    var italic = document.getElementById("Italic").checked;
+    console.log(underline);
+    if(underline) {
+      document.body.style.textDecoration = "underline";
+    } else {
+      document.body.style.textDecoration = "none";
+    }
+
+    if(bold) {
+      document.body.style.fontWeight = "bold";
+    } else {
+      document.body.style.fontWeight = "normal";
+    }
+
+    if(italic) {
+      document.body.style.fontStyle = "italic";
+    } else {
+      document.body.style.fontStyle = "normal";
+    }
+  }
+  </script>
+</head>
+
+<body id="background" style="background: #333333 url('images/1531-light-beige.jpg');">
+  <h1>Object Model Manipulation</h1>
+  <p>Select a background color<p>
+
+  <input type="radio" id="beige" name="color" value="beige" onclick="changeBackgroundBeige();">
+  <label for="beige">Beige</label><br>
+  <input type="radio" id="red" name="color" value="red" onclick="changeBackgroundRed();">
+  <label for="red">Red</label><br>
+  <input type="radio" id="white" name="color" value="white" onclick="changeBackgroundWhite();">
+  <label for="white">White</label><br>
+  <input type="radio" id="green" name="color" value="green" onclick="changeBackgroundGreen();">
+  <label for="green">Green</label><br>
+
+  <p>Choose 1 or more text styles</p>
+  <input type="checkbox" id="Underline" name="textStyle" value="Underline" onchange="changeTextStyle()">
+  <label for="Underline">Underline</label><br>
+  <input type="checkbox" id="Bold" name="browser" value="Bold" onchange="changeTextStyle()">
+  <label for="Bold">Bold</label><br>
+  <input type="checkbox" id="Italic" name="browser" value="Bold" onchange="changeTextStyle()">
+  <label for="Italic">Italic</label><br>
+
+  <p >Choose a font size (Percentage)</p>
+    <select id="font_sizes" onchange="changeFontSize()">
+      <option value="10">10</option>
+      <option value="25">25</option>
+      <option value="50">50</option>
+      <option value="75">75</option>
+      <option value="100">100</option>
+      <option value="150">150</option>
+      <option value="300">300</option>
+    </select>
+
+  <p class="link"><a href="/hw7.html">Homework 7 Homepage</a></p>
+  <p class="link"><a href="./index.html">Back to main page</a></p>
+
+</body>
+</html>
