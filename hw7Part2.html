@@ -15,8 +15,8 @@
       var cName1 = "name";
       var cName2 = "username";
 
-      document.cookie = cName1 + "=" + cNameValue + ";";// + "SameSite=None; Secure";
-      document.cookie = cName2 + "=" + cUserValue + ";";// + "SameSite=None; Secure";
+      document.cookie = cName1 + "=" + cNameValue + ";" + "SameSite=Strict";// + "SameSite=None; Secure";
+      document.cookie = cName2 + "=" + cUserValue + ";" + "SameSite=Strict";// + "SameSite=None; Secure";
       document.getElementById("result").innerHTMl= "Hey anon";
     }
 
