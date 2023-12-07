@@ -43,16 +43,17 @@ function myFunction(xml) {
 }
 </script>
 <h2>Explanation of AJAX</h2>
-<p>[Explain ajax calls]</p>
+<p>Upon clicking the button labeled "Get CD collection", loadDoc() is called. An XMLHttpRequest object is created. The onload() function is called passing the XMLHttpRequest object (this) as a parameter to myFunction(). The object opens the cd catalog .xml file, which triggers myFunction(). The .responseXML property fetches the document. We use .getElementsByTagName() to search for the CD tag and traverse the array for the Artist and Title tags, which are displayed on the HTML table.</p>
 <h2>REST API</h2>
-<p>Some guidelines:</p>
-<p>
-    What type of response file you get (JSON, XML, etc.)?
-    Do you need any type of key to access and use the API?
-    Do the companies need to pay any fee to use the API and if they need, how is that charged?
-    You need also to provide a link to any type of documentation that would help the developer use the API.
-    TIP: Do not use the URL as the words for the hyperlink, use meaningful words to make your hyperlink accessible for users using screen readers!
-</p>
+<p>I present to you the Catfacts API! Know any cat lovers in your life? Do you wish to educate them more about their beloved pets? How about just to smother your friends with cat facts? Want to disrupt social media political discouse with cat facts? Want to spam someones texts? Then this free API is right for you! There are a few requirements to set up Cat Facts on your own device. You will need:
 
+    -An Android phone with SMS capabilities
+    -Tasker (Android app for automation)
+    -Node.js
+    -Heroku CLI for deployment
+
+Follow the instructions here at <a href="https://alexwohlbruck.github.io/cat-facts/docs/setup">Cat Facts Setup Page</a>. You will be asked to create a service token. Then you can connect your app to the github repository and implement the API as you wish! Keep in mind the response files will be in JSON format. In addition you can connect your android phone to automatically send cat facts via SMS, and Twitter bots are natively supported.
+Get started with Cat Facts today for your malicious/benevolent use!
+<a href="https://alexwohlbruck.github.io/cat-facts/?ref=apilist.fun">Cat facts Github</a>
 </body>
 </html>
