@@ -64,4 +64,12 @@
     <PRICE>8.20</PRICE>
     <YEAR>1987</YEAR>
   </CD>
+  <CD>
+    <TITLE>Johns Song</TITLE>
+    <ARTIST>John Tsiglieris</ARTIST>
+    <COUNTRY>USA</COUNTRY>
+    <COMPANY>JOHN LLC</COMPANY>
+    <PRICE>100.99</PRICE>
+    <YEAR>2023</YEAR>
+  </CD>
 </CATALOG>
