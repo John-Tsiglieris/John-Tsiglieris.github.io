@@ -40,7 +40,7 @@ function myFunction(xml) {
 }
 </script>
 <h2>Explanation of AJAX</h2>
-<p>Upon clicking the button labeled "Get CD collection", loadDoc() is called. An XMLHttpRequest object is created. The onload() function is called passing the XMLHttpRequest object (this) as a parameter to myFunction(). The object opens the cd catalog .xml file, which triggers myFunction(). The .responseXML property fetches the document. We use .getElementsByTagName() to search for the CD tag and traverse the array for the Artist and Title tags, which are displayed on the HTML table.</p>
+<p>Upon clicking the button labeled "Get CD collection", loadDoc() is called. An XMLHttpRequest object is created. The onload() function is called passing the XMLHttpRequest object (this) as a parameter to myFunction(). The object opens the cd catalog .xml file by sending the GET method and sending the path to the file. This also triggers myFunction(). The .responseXML property fetches the document. We use .getElementsByTagName() to search for the CD tag and traverse the array for the Artist and Title tags, and builds the td and tr tags for the table</p>
 <h2>REST API</h2>
 <p>I present to you the Catfacts API! Know any cat lovers in your life? Do you wish to educate them more about their beloved pets? How about just to smother your friends with cat facts? Want to disrupt social media political discouse with cat facts? Want to spam someones texts? Then this free API is right for you! There are a few requirements to set up Cat Facts on your own device. You will need:
 
